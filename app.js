@@ -1,12 +1,10 @@
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-const dotEnv = require('dotenv')
+require('dotenv').config()
 const dbConnection = require('./dbConfig/connect')
 const {shortenerRoute} = require('./routes')
 
-// access .env contents
-dotEnv.config()
 const PORT = process.env.PORT || 4000
 
 const app = express()
