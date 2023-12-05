@@ -4,7 +4,8 @@
   "description": "simple url shortener",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "build": "node app"
   },
   "author": "Joel osei",
   "license": "ISC",
