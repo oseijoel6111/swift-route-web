@@ -1,6 +1,8 @@
 const shortenUrl = async (long_url, req) => {
     const key = await generateKey()
+    console.log('Key ', key);
     const BaseURL = getBaseURL(req)
+    console.log('BaseURL ', BaseURL);
     let short_url = `${BaseURL}/${key}`
     return {short_url, key, long_url }
 };
