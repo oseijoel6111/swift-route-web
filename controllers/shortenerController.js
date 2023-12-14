@@ -20,7 +20,6 @@ const create = async(req, res)=>{
         res.status(201).json({key, short_url, long_url})
 
     } catch (error) {
-        
         return res.status(404).json({'message' : error, 'status': 404})
     }
 }
