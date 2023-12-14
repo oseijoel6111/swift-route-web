@@ -7,7 +7,7 @@ const DBUser = process.env.DB_USERNAME
 const DBPass = process.env.DB_PASSWORD
 const DBHost = process.env.DB_HOST
 const connection = new Sequelize(DBName,DBUser, DBPass, {
-    dialect: `${DBConnection}`,
+    dialect: `mysql`,
     host: DBHost
 })
 
