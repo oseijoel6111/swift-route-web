@@ -8,13 +8,10 @@ const index = async(req, res)=>{
 const create = async(req, res)=>{
     try {
         const {url} = req.body;
-        
         if(!url) return res.status(404).json({'msg': 'Url required', 'statusCode': 404})
         let record = await Url.findOne({where: {long_url : url} })
-        
         if(record !== null)
            return res.status(200).json(record)
-        
         const {key, long_url, short_url} = await shortenUrl(url, req)
         record = await Url.create({key:key, long_url:long_url, short_url:short_url})
         res.status(201).json({key, short_url, long_url})
@@ -32,8 +29,19 @@ const remove = async(req, res)=>{
     }
 }
 
+const accessURL = async(req, res)=>{
+    try {
+        var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        console.log(fullUrl);
+        res.send("Done")
+    } catch (error) {
+        res.send(error)
+    }
+}
+
 module.exports = {
     index,
     create,
-    remove
+    remove,
+    accessURL
 }
